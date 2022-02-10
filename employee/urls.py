@@ -1,7 +1,7 @@
 from django.urls import path
-from rest_framework.authtoken.views import obtain_auth_token
 from .views import EmployeeListCreateView,EmployeeRetrieveUpdateDestroyView
-from .views import BankListCreateView,BankRetrieveUpdateDestroyView,RegisterUser
+from .views import BankListCreateView,BankRetrieveUpdateDestroyView,RegisterAPIUser,LogoutAPIView
+from .views import RegisterAPIUser
 
 
 urlpatterns = [
@@ -10,6 +10,6 @@ urlpatterns = [
 	path('bank/create/', BankListCreateView.as_view()),
 	path('bank/<int:pk>/', BankRetrieveUpdateDestroyView.as_view()),
 
-	path('login/', obtain_auth_token),
-	path('register/',RegisterUser.as_view()),
+	path('register/', RegisterAPIUser.as_view()),
+	path('logout/', LogoutAPIView.as_view()),
 ]
